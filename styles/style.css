@@ -1,225 +1,509 @@
 
-/* GENERAL SETTINGS */
+/* =====================================
+   1. GENERAL SETTINGS
+===================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
     scroll-behavior: smooth;
 }
 
-body {
-    background: #100d49;
-    color: white;
+html {
+    scroll-padding-top: 90px;
 }
 
-/* NAVIGATION BAR */
+
+/* BACKGROUND THAT FOLLOWS THE PAGE WHEN SCROLLING */
+
+body {
+    
+    min-height: 100vh;
+
+    background-image:
+        linear-gradient(
+            rgba(3, 5, 30, 0.15),
+            rgba(3, 5, 30, 0.15)
+        ),
+        url("../assets/home.png");
+
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    /* IMPORTANT */
+    background-attachment: scroll;
+}
+
+
+
+/* =====================================
+   2. NAVIGATION BAR
+===================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
-    background: #111c32;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 22px 8%;
+
+    background: rgba(3, 7, 30, 0.82);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(0, 212, 255, 0.4);
 }
 
 .logo {
-    color: #00d4ff;
-    font-size: 25px;
-}
-
-.navbar ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
-
-.navbar ul li a {
-    color: white;
+    color: #00eaff;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 2px;
     text-decoration: none;
-    font-size: 16px;
+
+    text-shadow: 0 0 14px #00eaff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
     transition: 0.3s;
 }
 
-.navbar ul li a:hover {
-    color: #00d4ff;
+.nav-links a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 12px #00dfff;
 }
 
-/* HOME SECTION */
+
+/* =====================================
+   3. HOME SECTION
+===================================== */
+
 .home {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 60px 10%;
-    gap: 40px;
+    padding: 130px 8% 60px;
 }
 
 .home-content {
-    max-width: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
 }
 
-.home-content h3 {
-    font-size: 22px;
+.home-text {
+    max-width: 650px;
 }
 
-.home-content h1 {
-    font-size: 50px;
-    margin: 15px 0;
+.welcome {
+    margin-bottom: 18px;
+    color: #00eaff;
+    font-weight: bold;
+    letter-spacing: 5px;
+
+    text-shadow: 0 0 12px #00eaff;
 }
 
-.home-content h1 span,
-.heading span {
-    color: #00d4ff;
+.home-text h1 {
+    margin-bottom: 12px;
+    font-size: clamp(36px, 5vw, 58px);
 }
 
-.home-content h2 {
-    color: #00d4ff;
-    margin-bottom: 15px;
+.home-text h1 span {
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #478cff,
+        #d02cff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.home-content p {
+.home-text h2 {
+    margin-bottom: 20px;
+    color: #14dfff;
+    font-size: 25px;
+}
+
+.home-text p {
+    margin-bottom: 28px;
+    color: #d6def7;
     font-size: 17px;
-    line-height: 1.7;
-    margin-bottom: 25px;
+    line-height: 1.8;
 }
+
+
+/* =====================================
+   4. VIEW PROJECTS BUTTON
+===================================== */
 
 .btn {
     display: inline-block;
-    padding: 12px 25px;
-    background: #00d4ff;
-    color: #0c215b;
-    text-decoration: none;
-    border-radius: 25px;
+    padding: 14px 30px;
+
+    color: white;
     font-weight: bold;
+    text-decoration: none;
+
+    border: 2px solid #00eaff;
+    border-radius: 30px;
+
+    background: linear-gradient(
+        100deg,
+        #00cfff,
+        #772cff,
+        #d000ff
+    );
+
+    box-shadow: 0 0 15px rgba(0, 220, 255, 0.7);
+
     transition: 0.3s;
 }
 
 .btn:hover {
-    background: white;
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 25px #00dfff,
+        0 0 35px #a000ff;
 }
 
-/* PROFILE IMAGE */
+
+/* =====================================
+   5. PROFILE IMAGE
+===================================== */
+
 .home-image img {
-    width: 380px;
-    height: 380px;
+    width: 300px;
+    height: 300px;
+
     object-fit: cover;
+    border: 4px solid #00eaff;
     border-radius: 50%;
-    border: 5px solid #00d4ff;
-    box-shadow: 0 0 25px #00d4ff;
+
+    box-shadow:
+        0 0 16px #00eaff,
+        0 0 38px rgba(0, 180, 255, 0.65);
 }
 
-/* GENERAL SECTION */
-section {
-    padding: 80px 10%;
+
+/* =====================================
+   6. GENERAL SECTIONS
+===================================== */
+
+section:not(.home) {
+    min-height: 70vh;
+    padding: 115px 8% 65px;
+    scroll-margin-top: 70px;
+    background: transparent;
 }
 
-.heading {
+.section-title {
+    margin-bottom: 42px;
+
+    color: white;
+    font-size: 38px;
     text-align: center;
-    font-size: 35px;
-    margin-bottom: 35px;
+
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.45);
 }
 
-/* ABOUT SECTION */
-.about {
-    background: #111c32;
-    text-align: center;
+.section-title span {
+    color: #00eaff;
 }
 
-.about p {
-    max-width: 800px;
+
+/* =====================================
+   7. GLASS CARD DESIGN
+===================================== */
+
+.about-content,
+.skill-box,
+.project-box,
+.contact-content {
+
+    background: rgba(3, 10, 35, 0.75) !important;
+
+    border: 1px solid rgba(0, 220, 255, 0.7);
+    border-radius: 20px;
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(0, 220, 255, 0.7);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 20px rgba(0, 220, 255, 0.25);
+}
+
+
+/* =====================================
+   8. ABOUT SECTION
+===================================== */
+
+.about-content {
+    max-width: 850px;
     margin: auto;
-    font-size: 18px;
-    line-height: 1.8;
+    padding: 38px;
+    text-align: center;
 }
 
-/* SKILLS AND PROJECTS */
-.skill-container,
-.project-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.about-content h3 {
+    margin-bottom: 18px;
+    color: #00eaff;
+    font-size: 26px;
+}
+
+.about-content p {
+    color: #e1e8ff;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+
+/* =====================================
+   9. SKILLS SECTION
+===================================== */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 }
 
-.skill-box,
-.project-box {
-    background: #17243b;
-    padding: 30px;
-    width: 250px;
-    border-radius: 15px;
+.skill-box {
+    padding: 32px;
     text-align: center;
-    border: 1px solid #00d4ff;
     transition: 0.3s;
 }
 
+.skill-box h3 {
+    margin-bottom: 14px;
+    color: #00eaff;
+    font-size: 24px;
+}
+
+.skill-box p {
+    color: #d6def7;
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   10. PROJECTS SECTION
+===================================== */
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.project-box {
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.project-box h3 {
+    margin-bottom: 15px;
+    color: #00eaff;
+}
+
+.project-box p {
+    color: #d6def7;
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   11. CARD HOVER EFFECT
+===================================== */
+
 .skill-box:hover,
 .project-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 15px #00d4ff;
+
+    transform: translateY(-8px);
+
+    border-color: #00f0ff;
+
+    box-shadow:
+        0 0 25px rgba(0, 212, 255, 0.4);
 }
 
-.skill-box h3,
-.project-box h3 {
-    color: #00d4ff;
-    margin-bottom: 15px;
-}
 
-.skill-box p,
-.project-box p {
-    line-height: 1.6;
-}
+/* =====================================
+   12. CONTACT SECTION
+===================================== */
 
-/* CONTACT SECTION */
-.contact {
-    background: #111c32;
+.contact-content {
+    max-width: 800px;
+    margin: auto;
+    padding: 35px;
+
+    color: #e1e8ff;
+    line-height: 2.5;
     text-align: center;
 }
 
-.contact p {
-    margin: 15px;
-    font-size: 18px;
-}
 
-/* FOOTER */
+/* =====================================
+   13. FOOTER
+===================================== */
+
 footer {
-    background: #070c17;
+    padding: 25px;
+
+    color: #d6def7;
     text-align: center;
-    padding: 20px;
-    color: #aaa;
+
+    background: rgba(3, 7, 30, 0.88);
+
+    border-top: 1px solid rgba(0, 212, 255, 0.4);
 }
 
-/* MOBILE RESPONSIVE DESIGN */
+
+/* =====================================
+   14. RESPONSIVE DESIGN
+===================================== */
+
 @media (max-width: 768px) {
 
     .navbar {
         flex-direction: column;
-        gap: 15px;
+        gap: 16px;
+        padding: 17px 5%;
     }
 
-    .navbar ul {
+    .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 14px 20px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
     }
 
     .home {
-        flex-direction: column-reverse;
+        padding-top: 165px;
         text-align: center;
     }
 
-    .home-content h1 {
-        font-size: 35px;
+    .home-content {
+        flex-direction: column-reverse;
+        gap: 30px;
     }
 
     .home-image img {
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
     }
 
-    section {
-        padding: 60px 6%;
+    .home-text h1 {
+        font-size: 36px;
     }
+
+    .home-text h2 {
+        font-size: 21px;
+    }
+
+    .skills-container,
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    section:not(.home) {
+        padding: 100px 6% 50px;
+    }
+
+    .section-title {
+        font-size: 31px;
+    }
+
+    .about-content {
+        padding: 25px;
+    }
+}
+
+
+/* =====================================
+   BACKGROUND FOR EVERY SECTION
+===================================== */
+
+/* HOME SECTION */
+#home {
+    background:
+        linear-gradient(rgba(0, 0, 20, 0.20),
+                        rgba(0, 0, 20, 0.20)),
+        url("../assets/home.jpg")
+        center center / cover no-repeat;
+}
+
+/* ABOUT SECTION */
+#about {
+    background:
+        linear-gradient(rgba(0, 0, 20, 0.30),
+                        rgba(0, 0, 20, 0.30)),
+        url("../assets/about.jpg")
+        center center / cover no-repeat;
+}
+
+/* SKILLS SECTION */
+#skills {
+    background:
+        linear-gradient(rgba(0, 0, 20, 0.30),
+                        rgba(0, 0, 20, 0.30)),
+        url("../assets/skills.jpg")
+        center center / cover no-repeat;
+}
+
+/* PROJECTS SECTION */
+#projects {
+    background:
+        linear-gradient(rgba(0, 0, 20, 0.30),
+                        rgba(0, 0, 20, 0.30)),
+        url("../assets/projects.jpg")
+        center center / cover no-repeat;
+}
+
+/* CONTACT SECTION */
+#contact {
+    background:
+        linear-gradient(rgba(0, 0, 20, 0.30),
+                        rgba(0, 0, 20, 0.30)),
+        url("../assets/contact.jpg")
+        center center / cover no-repeat;
+}
+
+/* BACKGROUND SCROLLS WITH THE PAGE */
+#home,
+#about,
+#skills,
+#projects,
+#contact {
+    background-attachment: scroll;
 }
