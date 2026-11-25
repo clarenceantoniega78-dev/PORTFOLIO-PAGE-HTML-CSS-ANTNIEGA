@@ -963,3 +963,15 @@ a:focus-visible {
     }
 }
 
+/* MOVE PROJECT CARDS UP */
+#projects .projects-container {
+    position: relative;
+    transform: translateY(-30px);
+}
+
+/* MOBILE ADJUSTMENT */
+@media (max-width: 768px) {
+    #projects .projects-container {
+        transform: translateY(-15px);
+    }
+}
